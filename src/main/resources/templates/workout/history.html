@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Workout History</title>
+</head>
+<body>
+<h1>Workout History</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Exercise Type</th>
+        <th>Duration (min)</th>
+        <th>Sets</th>
+        <th>Reps</th>
+        <th>Weight (kg)</th>
+        <th>Notes</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Iterate over logged workouts and display rows -->
+    <tr th:each="workout : ${workoutHistory}">
+        <td th:text="${workout.exerciseType}"></td>
+        <td th:text="${workout.durationMinutes}"></td>
+        <td th:text="${workout.sets}"></td>
+        <td th:text="${workout.reps}"></td>
+        <td th:text="${workout.weight}"></td>
+        <td th:text="${workout.notes}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- Link to navigate back to log workout page -->
+<a th:href="@{/workouts/log}">Log a Workout</a>
+</body>
+</html>
